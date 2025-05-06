@@ -1,0 +1,42 @@
+﻿@model Week2_2280601159.Models.Product
+<h2>Cập Nhật Sản Phẩm</h2>
+<form asp-action="Update">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label>Tên</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Tác Giả</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Giá</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Mô Tả</label>
+        <textarea asp-for="Description" class="formcontrol"></textarea>
+        <span asp-validation-for="Description" class="textdanger"></span>
+    </div>
+    <!-- Hiển thị ảnh hiện tại -->
+    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+    {
+        <div class="form-group">
+            <label>Ảnh</label>
+            <br />
+            <img src="@Url.Content("~/"+Model.ImageUrl)" alt="Product Image" style="width: 200px; height: auto;" />
+        </div>
+    }
+
+    <!-- Input để tải lên hình ảnh mới -->
+    <div class="form-group">
+        <label>Cập Nhật Ảnh Mới</label>
+        <input type="file" name="ImageFile" class="form-control-file" />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+</form>
+<a asp-action="Index">Trở Lại</a>

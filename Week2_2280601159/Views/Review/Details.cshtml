@@ -1,0 +1,7 @@
+﻿@model ReviewPost
+
+<h2>@Model.Title</h2>
+<p class="text-muted">Viết bởi @Model.Author lúc @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</p>
+<hr />
+<p>@Model.Content</p>
+<a href="/Review/Index" class="btn btn-secondary mt-3">Quay lại danh sách</a>

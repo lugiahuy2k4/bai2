@@ -1,0 +1,26 @@
+﻿@model Week2_2280601159.Models.Product
+
+@{
+    ViewData["Title"] = "Chi Tiết Sản Phẩm";
+}
+
+<h2>Chi Tiết Sản Phẩm</h2>
+
+<div class="product-details">
+    <img src="@Model.ImageUrl" alt="@Model.Name" class="product-image" />
+    <div class="product-info">
+        <h3>@Model.Name</h3>
+        <p><strong>Tác giả:</strong> @Model.Author</p>
+        <p><strong>Giá:</strong> @Model.Price.000đ</p>
+        <p><strong>Mô tả:</strong> @Model.Description</p>
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <a href="@Url.Action("Index", "Product")" class="btn btn-primary">← Quay lại danh sách sản phẩm</a>
+}
+else
+{
+    <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">← Quay về trang chủ</a>
+}
